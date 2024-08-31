@@ -1,0 +1,138 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    color: #262626;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #333;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+form {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.submit-button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #0078D4; /* Blue */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+}
+
+.submit-button:hover {
+    background-color: #0056A0; /* Darker Blue */
+}
+
+.add-button {
+    background-color: #6A1B9A; /* Green background */
+    color: white;              /* White text */
+    border: none;              /* No border */
+    padding: 10px 20px;        /* Padding */
+    text-align: center;        /* Center text */
+    text-decoration: none;     /* No underline */
+    display: inline-block;     /* Inline block */
+    font-size: 14px;           /* Font size */
+    margin: 5px 2px;           /* Margin */
+    cursor: pointer;           /* Pointer cursor on hover */
+    border-radius: 4px;        /* Rounded corners */
+}
+
+.add-button:hover {
+    background-color: #4A0D6D; /* Darker green on hover */
+}
+
+.remove-button {
+    background-color: #D1D1D1; /* Red background */
+    color: white;              /* White text */
+    border: none;              /* No border */
+    padding: 10px 20px;        /* Padding */
+    text-align: center;        /* Center text */
+    text-decoration: none;     /* No underline */
+    display: inline-block;     /* Inline block */
+    font-size: 14px;           /* Font size */
+    margin: 5px 2px;           /* Margin */
+    cursor: pointer;           /* Pointer cursor on hover */
+    border-radius: 4px;        /* Rounded corners */
+}
+
+.remove-button:hover {
+    background-color: #A02D2A; /* Darker green on hover */
+}
+
+#node-coordinates div,
+#lda-inputs div,
+#forces-inputs div {
+    margin-bottom: 15px;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    padding: 12px 24px;
+    background-color: #D3D3D3; /* Blue */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+a:hover {
+    background-color: #0056A0; /* Darker Blue */
+}
+
+pre {
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 20px auto;
+    width: 90%;
+    overflow: auto;
+}

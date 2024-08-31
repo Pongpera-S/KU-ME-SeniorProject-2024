@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Truss Structure Input</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Enter Truss Parameters</h1>
+        <form action="{{ url_for('plot') }}" method="post">
+            <label for="elements">Number of Elements:</label>
+            <input type="number" id="elements" name="elements" required><br><br>
+    
+            <label for="nodes">Number of Nodes:</label>
+            <input type="number" id="nodes" name="nodes" required><br><br>
+    
+            <h2>Node Coordinates</h2>
+            <div id="node-coordinates">
+                <div>
+                    <label for="x[]">Node 1 X - Coordinate:</label>
+                    <input type="text" name="x[]" required>
+                    <label for="y[]">Y - Coordinate:</label>
+                    <input type="text" name="y[]" required>
+                </div>
+            </div>
+            <button type="button" class="add-button" onclick="addNodeInput()">Add More Node</button><br><br>
+    
+            <h2>Local Destination Array (lda)</h2>
+            <div id="lda-inputs">
+                <div>
+                    <label for="lda_start_1">Element 1 Start Node:</label>
+                    <input type="text" name="lda_start_1" required>
+                    <label for="lda_end_1">End Node:</label>
+                    <input type="text" name="lda_end_1" required>
+                </div>
+            </div>
+            <button type="button" class="add-button" onclick="addLdaInput()">Add More Element</button><br><br>
+    
+            <h2>Forces Applied</h2>
+            <div id="forces-inputs">
+                <div>
+                    <label for="nf[]">Forces Applied At Node (nf):</label>
+                    <input type="text" name="nf[]" required>
+                    <label for="Fx[]">Force In X-Direction (Fx):</label>
+                    <input type="text" name="Fx[]" required>
+                    <label for="Fy[]">Force In Y-Direction (Fy):</label>
+                    <input type="text" name="Fy[]" required>
+                </div>
+            </div>
+            <button type="button" class="add-button" onclick="addForceInput()">Add More Force Applied</button><br><br>
+    
+            <button type="submit" class="submit-button">Plot Truss</button>
+        </form>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+    </body>
+</html>
+

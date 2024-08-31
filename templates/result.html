@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truss Structure Plot</title>
+    <script src="function.js" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Truss Structure</h1>
+    <img src="data:image/png;base64,{{ image_base64 }}" alt="Truss Structure Plot">
+    <br><br>
+    <form action="{{ url_for('calculate') }}" method="post">
+        <input type="hidden" name="elements" value="{{ e }}">
+        <input type="hidden" name="nodes" value="{{ n }}">
+        {% for coord in x %}
+            <input type="hidden" name="x[]" value="{{ coord }}">
+        {% endfor %}
+        {% for coord in y %}
+            <input type="hidden" name="y[]" value="{{ coord }}">
+        {% endfor %}
+        {% for i in range(e) %}
+            <input type="hidden" name="lda_start_{{ i+1 }}" value="{{ lda[i, 0] }}">
+            <input type="hidden" name="lda_end_{{ i+1 }}" value="{{ lda[i, 1] }}">
+        {% endfor %}
+        {% for node in nf %}
+            <input type="hidden" name="nf[]" value="{{ node }}">
+        {% endfor %}
+        {% for fx in Fx %}
+            <input type="hidden" name="Fx[]" value="{{ fx }}">
+        {% endfor %}
+        {% for fy in Fy %}
+            <input type="hidden" name="Fy[]" value="{{ fy }}">
+        {% endfor %}
+
+        <h2>Nodes Without Forces (nb)</h2>
+        <div id="nb-inputs">
+            <div>
+                <label for="nb[]">Node without force:</label>
+                <input type="text" name="nb[]" required>
+            </div>
+        </div>
+        <button type="button" class="add-button" onclick="addNbInput()">Add More Nodes Without Forces</button><br><br>
+        
+        <h2>Material Properties</h2>
+
+        <div>
+            <label for="E_selection">Elastic Modulus:</label><br>
+            <input type="radio" id="single_E" name="E_selection" value="single" checked>
+            <label for="single_E">Single Value</label><br>
+            <input type="radio" id="multiple_E" name="E_selection" value="multiple">
+            <label for="multiple_E">Multiple Values</label>
+        </div>
+
+        <div id="E_single_input">
+            <label for="E_single">Elastic Modulus (Single Value):</label>
+            <input type="text" id="E_single" name="E_single"><br><br>
+        </div>
+
+        <div id="E_multiple_input" style="display: none;">
+            <div id="material-properties-E">
+                <div>
+                    <label for="E_1">Elastic Modulus for Element 1:</label>
+                    <input type="text" id="E_1" name="E[]"><br><br>
+                </div>
+            </div>
+            <button type="button" class="add-button" onclick="addMaterialInput('E')">Add Material Properties for Next Element</button><br><br>
+        </div>
+
+        <div>
+            <label for="A_selection">Cross-sectional Area:</label><br>
+            <input type="radio" id="single_A" name="A_selection" value="single" checked>
+            <label for="single_A">Single Value</label><br>
+            <input type="radio" id="multiple_A" name="A_selection" value="multiple">
+            <label for="multiple_A">Multiple Values</label>
+        </div>
+
+        <div id="A_single_input">
+            <label for="A_single">Cross-sectional Area (Single Value):</label>
+            <input type="text" id="A_single" name="A_single"><br><br>
+        </div>
+
+        <div id="A_multiple_input" style="display: none;">
+            <div id="material-properties-A">
+                <div>
+                    <label for="A_1">Cross-sectional Area for Element 1:</label>
+                    <input type="text" id="A_1" name="A[]"><br><br>
+                </div>
+            </div>
+            <button type="button" class="add-button" onclick="addMaterialInput('A')">Add Material Properties for Next Element</button><br><br>
+        </div>
+
+        <button type="submit" class="submit-button">Calculate Deformation</button>
+        <a href="{{ url_for('index') }}">Go back to input page</a>
+    </form>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+</body>
+</html>

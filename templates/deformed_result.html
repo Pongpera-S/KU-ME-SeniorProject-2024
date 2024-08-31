@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deformed Truss Structure</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Deformed Truss Structure</h1>
+    <img src="data:image/png;base64,{{ deformed_image_base64 }}" alt="Deformed Truss Structure Plot">
+
+    <h2>Displacements (U)</h2>
+    <ul id="displacements-list"></ul>
+
+    <h3>Nodal Displacements (U) X-axis</h3>
+    {% for ux in Ux %}
+        <pre>{{ ux }}</pre>
+    {% endfor %}
+
+    <h3>Nodal Displacements (U) Y-axis</h3>
+    {% for uy in Uy %}
+        <pre>{{ uy }}</pre>
+    {% endfor %}
+
+    <h2>Reactions (R)</h2>
+    <ul id="reactions-list"></ul>
+
+    <h3>Support Reactions (R) X-axis</h3>
+    {% for rx in Rx %}
+        <pre>{{ rx }}</pre>
+    {% endfor %}
+
+    <h3>Support Reactions (R) Y-axis</h3>
+    {% for ry in Ry %}
+        <pre>{{ ry }}</pre>
+    {% endfor %}
+
+    <h2>Axial Stress in Each Member</h2>
+    <ul id="stresses-list"></ul>
+    {% for s in sigma %}
+        <pre>{{ s }}</pre>
+    {% endfor %}
+
+    <br><br>
+    <a href="{{ url_for('index') }}">Go back to input page</a>
+</body>
+</html>
