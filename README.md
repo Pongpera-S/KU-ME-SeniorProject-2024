@@ -8,6 +8,14 @@ The FEM Truss Solver is a Flask-based web application developed as part of a mec
 - **Finite Element Analysis:** Perform FEM analysis to calculate deformations, nodal displacements, reactions at supports, and stresses in each truss element.
 - **Interactive Interface:** Input truss data, view results, and export data for further analysis.
 
+## Requirements
+
+- Python 3.x
+- Required Python libraries:
+  - `numpy`
+  - `matplotlib`
+  - `Flask`
+
 ## Usage Instructions
 
 1. **Input Truss Parameters:**
