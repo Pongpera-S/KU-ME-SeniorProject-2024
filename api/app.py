@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import io
 import base64
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder="../templates",static_folder="../static")
 
 def plot_truss(x, y, lda, nf=None, Fx=None, Fy=None):
     plt.figure()
