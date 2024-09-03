@@ -1,5 +1,7 @@
 # FEM Truss Solver
 
+https://ku-me-senior-project-2024.vercel.app/
+
 ## Project Description
 The FEM Truss Solver is a Flask-based web application developed as part of a mechanical engineering senior project at Kasetsart University. It serves as a finite element method (FEM) 2D truss analysis solver, designed to assist engineers in performing finite element analysis (FEA) calculations on truss structures. The application provides a user-friendly interface to input truss parameters, visualize truss structures, calculate deformations, and analyze stresses.
 
